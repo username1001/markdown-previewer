@@ -4,14 +4,10 @@ import TextArea from "./TextArea";
 class DisplayText extends React.Component {
   render() {
   super();
-  
-    const state = {
-      text: '',
-    }
 
     return (
       <div>
-      
+        <h1>Hello</h1>
       </div>
     );
   }
