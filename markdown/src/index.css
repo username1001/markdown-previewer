@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.markdown-preview {
+  /* float: left;
+  width: 25%;
+  height: 25em; */
+}
+@media screen and (max-width: 580px) {
+  .markdown-preview {
+  }
+}
