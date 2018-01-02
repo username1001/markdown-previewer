@@ -1,10 +1,32 @@
 import React from "react";
+const marked = require("marked");
 
 class TextArea extends React.Component {
   state = {
-    text: "## Enter markdown"
+    text: "## Enter Markdown"
   };
   render() {
+    const handleChange = event => {
+      this.setState({
+        text: event.target.value
+      });
+    };
+    const Markup = () => {
+      marked.setOptions({
+        renderer: new marked.Renderer(),
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false
+      });
+      const Markup = marked(this.state.text, { sanitize: true });
+      return {
+        __html: Markup
+      };
+    };
     return (
       <div className="container-fluid">
         <div className="row">
@@ -15,11 +37,12 @@ class TextArea extends React.Component {
               id="markdown"
               className="markdown"
               defaultValue={this.state.text}
+              onChange={this.handleChange}
             />
           </div>
           <div className="col-xs-12 col-sm-6">
             <h3>Preview</h3>
-            <div id="preview" />
+            <div id="preview" dangerouslySetInnerHTML={Markup()} />
           </div>
         </div>
       </div>
