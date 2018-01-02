@@ -3,7 +3,7 @@ const marked = require("marked");
 
 class TextArea extends React.Component {
   state = {
-    text: "## Enter Markdown"
+    text: "___ \n ## Header \n ### Smaller Header \n __bold text__ \n\n_italic_"
   };
   render() {
     const handleChange = event => {
@@ -37,7 +37,7 @@ class TextArea extends React.Component {
               id="markdown"
               className="markdown"
               defaultValue={this.state.text}
-              onChange={this.handleChange}
+              onChange={handleChange}
             />
           </div>
           <div className="col-xs-12 col-sm-6">
